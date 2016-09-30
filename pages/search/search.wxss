@@ -12,7 +12,7 @@
 }
 
 .content-body{
-    margin-top: 50px;
+    padding-top: 50px;
 }
 .github-icon{
     width: 30px;
@@ -45,4 +45,30 @@
     width: 90%;
     height: 150px;
     box-shadow:  0px 0px 8px #888888;
+}
+
+
+/**/
+.item-wrap{
+    margin: 10px;
+    box-shadow:  0px 0px 8px #888888;
+    padding: 10px;
+    border-radius: 5px;
+}
+.item-text{
+    color: blue;
+}
+.item-tags-wrap{
+    display: flex;
+    margin-top: 10px;
+    
+}
+.tag-item{
+    flex: 1;
+}
+
+.btn-load-more{
+    display: inline-block;
+    width: 80%;
+    margin: 10px 0;
 }

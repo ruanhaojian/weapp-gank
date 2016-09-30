@@ -7,14 +7,31 @@
         </picker>
     </view>
     <view class="content-body">
-        <view wx:if="{{index != 3}}">
-
+        <view wx:if="{{typeArray[index] != '福利'}}">
+            <view class="item-wrap" wx:for="{{items}}">
+                <!--<view wx:if="{{item.images && item.images.length > 0}}">
+                    <view wx:for="{{item.images}}"><image src="{{item}}" style="height:100px"/></view>
+                </view>-->
+                
+                <text class="item-text">{{item.desc}}</text>
+                <view class="item-tags-wrap">
+                    <view class="tag-item">{{item.publishedAt}}</view>
+                    <view class="tag-item" style="text-align: center">{{item.source}}</view>
+                    <view class="tag-item" style="text-align: right">{{item.type}}</view>
+                </view>
+            </view>
         </view>
         <view wx:else>
             <view class="img-wrap" wx:for="{{items}}">
                 <image class="image" mode="aspectFit" src="{{item.url}}" />
             </view>
         </view>
+
+        <view style="text-align: center;">
+            <button class="btn-load-more" type="primary" size="default" loading="{{btnLoading}}" plain="false"
+         bindtap="loadMore">{{btnLoading ? 'Loading ...' : 'Load More'}}</button>
+        </view>
+        
     </view>
     
 </view>
