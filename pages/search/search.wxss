@@ -1,0 +1,48 @@
+.header-bar{
+    padding: 10px;
+    display: flex;
+    border-bottom: 1px solid #eee;
+    justify-content: center;
+    align-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: white;
+}
+
+.content-body{
+    margin-top: 50px;
+}
+.github-icon{
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.search-input{
+    display: block;
+    height: 30px;
+    flex: 1;
+    justify-content: center;
+    align-content: center;
+}
+.type-picker{
+    width: 4em;
+    height: 30px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-wrap{
+    width: 50%;
+    text-align: center;
+    float: left;
+    margin: 5px 0;
+}
+.image{
+    width: 90%;
+    height: 150px;
+    box-shadow:  0px 0px 8px #888888;
+}

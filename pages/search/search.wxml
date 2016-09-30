@@ -1,0 +1,20 @@
+<view>
+    <view class="header-bar">
+        <image class="github-icon" src="../../assets/images/github.png" mode="aspectFit"></image>   
+        <input class="search-input" placeholder="输入搜索的内容"   />
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{typeArray}}">
+            <view class="type-picker">{{typeArray[index]}}</view>
+        </picker>
+    </view>
+    <view class="content-body">
+        <view wx:if="{{index != 3}}">
+
+        </view>
+        <view wx:else>
+            <view class="img-wrap" wx:for="{{items}}">
+                <image class="image" mode="aspectFit" src="{{item.url}}" />
+            </view>
+        </view>
+    </view>
+    
+</view>
