@@ -22,8 +22,8 @@
             </view>
         </view>
         <view wx:else>
-            <view class="img-wrap" wx:for="{{items}}">
-                <image class="image" mode="aspectFit" src="{{item.url}}" />
+            <view class="img-wrap" wx:for="{{items}}" bindtap="imgTab">
+                <image class="image" data-img-url="{{item.url}}" mode="aspectFit" src="{{item.url}}" />
             </view>
         </view>
 
@@ -33,5 +33,17 @@
         </view>
         
     </view>
-    
 </view>
+<loading hidden="{{loadingHidden}}" bindchange="loadingChange">
+    {{loadingText}}
+</loading>
+
+<toast hidden="{{toastHidden}}" bindchange="toastChange">
+    {{toastText}}
+</toast>
+
+<modal title="标题" confirm-text="save" cancel-text="cancel" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindcancel="onCancelClick">
+    <view >
+        <image class="modalImage" mode="aspectFit" src="{{imageUrl}}" />
+    </view>
+</modal>

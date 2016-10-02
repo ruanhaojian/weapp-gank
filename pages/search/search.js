@@ -23,12 +23,16 @@ Date.prototype.format = function (fmt) { //author: meizz
 
 Page({
   data: {
-    isLoading: false,
+    loadingHidden: true,
     typeArray: ['all','Android','iOS','福利','App','拓展资源','前端','瞎推荐'],
-    index: 0,
+    index: 3,
     items: [],
     btnLoading: false,
-    page : 1
+    page : 1,
+    modalHidden: true,
+    imageUrl:'',
+    toastHidden: true,
+
   },
   onLoad: function () {
     var _this = this;
@@ -105,5 +109,56 @@ Page({
       page: this.data.page + 1
     })
     this.searchData();
+  },
+  imgTab: function(e){
+    
+    this.setData({
+      modalHidden: false,
+      imageUrl: e.target.dataset.imgUrl
+    })
+
+  },
+  onCancelClick: function(){
+    this.setData({
+      modalHidden: true,
+      imageUrl: ''
+    })
+  },
+  onSaveClick: function(){
+    saveIamge();
+  },
+  toastChange: function (event) {
+    this.setData({toastHidden: true});
   }
 })
+
+function saveIamge() {
+    var appInstance = getApp();
+    var that = appInstance.getCurrentPage();
+    that.setData({
+        loadingHidden: false,
+        toastHidden: true,
+        modalHidden: true,
+        loadingText: "下载中..."
+    });
+    wx.downloadFile({
+        url: that.data.imageUrl,
+        type: 'image',
+        success: function (res) {
+            console.log("download success");
+            that.setData({
+                loadingHidden: true,
+                toastHidden: false,
+                toastText: "图片已成功下载"
+            });
+        },
+        fail: function (res) {
+            console.log("download fail");
+            that.setData({
+                loadingHidden: true,
+                toastHidden: false,
+                toastText: "下载失败，请重试"
+            });
+        },
+    })
+}
