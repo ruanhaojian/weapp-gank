@@ -42,7 +42,7 @@
     {{toastText}}
 </toast>
 
-<modal title="标题" confirm-text="save" cancel-text="cancel" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindcancel="onCancelClick">
+<modal title="picture" confirm-text="save" cancel-text="cancel" hidden="{{modalHidden}}" bindconfirm="onSaveClick" bindcancel="onCancelClick">
     <view >
         <image class="modalImage" mode="aspectFit" src="{{imageUrl}}" />
     </view>
